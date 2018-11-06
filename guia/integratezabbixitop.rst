@@ -114,8 +114,7 @@ Puede probar la creación del ticket ejecutando el script manualmente. Por ejemp
 
 Este otro código lo utilizamos por si falla la creación del ticket igual forma envié la creación de un ticket para verificar este error::
 
-	http://192.168.1.230/itop/webservices/rest.php?version=1.1&auth_user=admin&auth_pwd=admin&json_data={"operation":"core/create","class":"UserRequest","output_fields":"id","comment":"ErrtoZabbix","fields":{"org_id":"1","title":"Error create Ticket",
-"description":"Error to create ticket from Zabbix, please contacte the TI Master"}}
+	http://192.168.1.230/itop/webservices/rest.php?version=1.1&auth_user=admin&auth_pwd=admin&json_data={"operation":"core/create","class":"UserRequest","output_fields":"id","comment":"ErrtoZabbix","fields":{"org_id":"1","title":"Error create Ticket","description":"Error to create ticket from Zabbix, please contacte the TI Master"}}
 
 
 Configurando Zabbix
@@ -204,7 +203,9 @@ En "Operations" solo cargamos esto:
 * Default message:
 
 	Host: {HOST.NAME}
+
 	Problem name: {TRIGGER.NAME}
+
 	Severity: {TRIGGER.SEVERITY}
 
 
