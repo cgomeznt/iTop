@@ -31,7 +31,7 @@ Vamos utilizar este::
 	HOST=$(echo -e "$MESSAGE" | grep Host | awk -F ":" '{print $2}'| tr -d " ")
 	HOST=$(echo $HOST | tr -d '\r')
 	SERVICE=$(echo -e "$MESSAGE" | grep Problem | awk -F ":" '{print $2}')
-	SERVICE=$(echo $SERVICE)
+	SERVICE=$(echo $SERVICE | tr -d "\(\)\[\]\-\:\"")
 	SERVICE_STATUS=$(echo -e "$MESSAGE" | grep Severity | awk -F ":" '{print $2}')
 	SERVICE_STATUS_TYPE="HARD"
 
@@ -49,7 +49,7 @@ Vamos utilizar este::
 	# Default values, adapt them to your configuration
 	TICKET_CLASS="UserRequest"
 	ORGANIZATION="SELECT Organization JOIN FunctionalCI AS CI ON CI.org_id=Organization.id WHERE CI.name='"${HOST}"'"
-	TITLE="SERVICE PROBLEM on $HOST"
+	TITLE="$HOST with SERVICE PROBLEM"
 	DESCRIPTION="The service $SERVICE is in state $SERVICE_STATUS on $HOST"
 	 
 	# Let's create the ticket via the REST/JSON API
