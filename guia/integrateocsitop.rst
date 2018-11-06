@@ -269,10 +269,10 @@ Debe tener un resultado como este::
 
 	Warning - Contact to notify (carlos.gomez@demo.com) not found in iTop. Nobody will be notified of the results of the synchronization.
 	Info - Synchro User: 'admin' <my.email@foo.org> (1).
-	Info - Ok, the Synchro Data Source 'Synchro Brand OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro OSFamily OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro OSVersion OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro Server Model OCSng' exists in iTop and is up to date
+	Info - There is no Synchro Data Source named 'Synchro Brand OCSng' in iTop. Let's create it.
+	Info - There is no Synchro Data Source named 'Synchro OSFamily OCSng' in iTop. Let's create it.
+	Info - There is no Synchro Data Source named 'Synchro OSVersion OCSng' in iTop. Let's create it.
+	Info - There is no Synchro Data Source named 'Synchro Server Model OCSng' in iTop. Let's create it.
 	Info - There is no Synchro Data Source named 'Synchro Server OCSng' in iTop. Let's create it.
 	Info - Skipping optional attribute enclosure_id.
 	Info - Skipping optional attribute powerA_id.
@@ -282,50 +282,9 @@ Debe tener un resultado como este::
 	Info - There is no Synchro Data Source named 'Synchro Server PhysicalInterface OCSng' in iTop. Let's create it.
 	Info - There is no Synchro Data Source named 'Synchro PC Model OCSng' in iTop. Let's create it.
 	Info - There is no Synchro Data Source named 'Synchro PC OCSng' in iTop. Let's create it.
-	Error - Failed to create the SynchroDataSource 'Synchro PC OCSng'. Reason: Error: Object not following integrity rules: issues = The table itopsynchro_data_synchro_data_PCOCSng already exists in the database. Please use another name for the synchro data table., class = SynchroDataSource, id =  (100)
-	[root@itop01 ocsng-data-collector]# php exec.php 
-	Warning - Contact to notify (carlos.gomez@demo.com) not found in iTop. Nobody will be notified of the results of the synchronization.
-	Info - Synchro User: 'admin' <my.email@foo.org> (1).
-	Info - Ok, the Synchro Data Source 'Synchro Brand OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro OSFamily OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro OSVersion OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro Server Model OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro Server OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro Server PhysicalInterface OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro PC Model OCSng' exists in iTop and is up to date
-	Info - There is no Synchro Data Source named 'Synchro PC OCSng' in iTop. Let's create it.
-	Error - Problem opening URL: http://192.168.1.230/itop/webservices/rest.php?version=1.0, Empty reply from server
-	[root@itop01 ocsng-data-collector]# vi /etc/my.cnf
-	[root@itop01 ocsng-data-collector]# systemctl restart mariadb
-	[root@itop01 ocsng-data-collector]# php exec.php 
-	Warning - Contact to notify (carlos.gomez@demo.com) not found in iTop. Nobody will be notified of the results of the synchronization.
-	Info - Synchro User: 'admin' <my.email@foo.org> (1).
-	Info - Ok, the Synchro Data Source 'Synchro Brand OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro OSFamily OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro OSVersion OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro Server Model OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro Server OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro Server PhysicalInterface OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro PC Model OCSng' exists in iTop and is up to date
-	Info - The Synchro Data Source definition for 'Synchro PC OCSng' must be updated in iTop.
 	Info - [OCSPCCollector] The column tickets_list is used for storing the OCS ID in order to display the OCS tab on PCs. You can safely ignore the warning about it.
 	Info - There is no Synchro Data Source named 'Synchro PC PhysicalInterface OCSng' in iTop. Let's create it.
 	Info - There is no Synchro Data Source named 'Synchro VirtualMachine OCSng' in iTop. Let's create it.
-	Error - Problem opening URL: http://192.168.1.230/itop/webservices/rest.php?version=1.0, Empty reply from server
-	[root@itop01 ocsng-data-collector]# rm data/* -rf
-	[root@itop01 ocsng-data-collector]# php exec.php 
-	Warning - Contact to notify (carlos.gomez@demo.com) not found in iTop. Nobody will be notified of the results of the synchronization.
-	Info - Synchro User: 'admin' <my.email@foo.org> (1).
-	Info - Ok, the Synchro Data Source 'Synchro Brand OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro OSFamily OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro OSVersion OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro Server Model OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro Server OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro Server PhysicalInterface OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro PC Model OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro PC OCSng' exists in iTop and is up to date
-	Info - Ok, the Synchro Data Source 'Synchro PC PhysicalInterface OCSng' exists in iTop and is up to date
-	Info - The Synchro Data Source definition for 'Synchro VirtualMachine OCSng' must be updated in iTop.
 	Info - [OCSVirtualMachineCollector] The column tickets_list is used for storing the OCS ID in order to display the OCS tab on Virtual Machines. You can safely ignore the warning about it.
 	Info - There is no Synchro Data Source named 'Synchro LogicalInterface OCSng' in iTop. Let's create it.
 	Info - OCSBrandCollector beginning of data collection...
@@ -359,7 +318,7 @@ Debe tener un resultado como este::
 	Info - OCSLogicalInterfaceCollector end of data collection.
 	Info - Uploading data file '/var/www/html/itop/extensions/ocsng-data-collector/data/OCSBrandCollector-1.csv'
 	Info - Starting synchronization of the data source 'Synchro Brand OCSng'...
-	Info - Synchronization of data source 'Synchro Brand OCSng' succeeded.
+	Error - Synchronization of data source 'Synchro Brand OCSng' answered: Objects creation errors: 1
 	Info - Uploading data file '/var/www/html/itop/extensions/ocsng-data-collector/data/OCSOSFamilyCollector-1.csv'
 	Info - Starting synchronization of the data source 'Synchro OSFamily OCSng'...
 	Info - Synchronization of data source 'Synchro OSFamily OCSng' succeeded.
@@ -368,8 +327,9 @@ Debe tener un resultado como este::
 	Info - Synchronization of data source 'Synchro OSVersion OCSng' succeeded.
 	Info - Uploading data file '/var/www/html/itop/extensions/ocsng-data-collector/data/OCSServerModelCollector-1.csv'
 	Info - Starting synchronization of the data source 'Synchro Server Model OCSng'...
-	Info - Synchronization of data source 'Synchro Server Model OCSng' succeeded.
+	Error - Synchronization of data source 'Synchro Server Model OCSng' answered: Objects creation errors: 1
 	Info - Processing '/var/www/html/itop/extensions/ocsng-data-collector/data/OCSServerCollector.raw-1.csv'...
+	Warning - No mapping found with key: '_', 'model_id' will be set to zero.
 	Info - End of processing of '/var/www/html/itop/extensions/ocsng-data-collector/data/OCSServerCollector.raw-1.csv'...
 	Info - Uploading data file '/var/www/html/itop/extensions/ocsng-data-collector/data/OCSServerCollector-1.csv'
 	Info - Starting synchronization of the data source 'Synchro Server OCSng'...
@@ -383,6 +343,12 @@ Debe tener un resultado como este::
 	Info - Synchronization of data source 'Synchro PC OCSng' succeeded.
 	Info - Starting synchronization of the data source 'Synchro PC PhysicalInterface OCSng'...
 	Info - Synchronization of data source 'Synchro PC PhysicalInterface OCSng' succeeded.
+	Info - Starting synchronization of the data source 'Synchro VirtualMachine OCSng'...
+	Info - Synchronization of data source 'Synchro VirtualMachine OCSng' succeeded.
+	Info - Starting synchronization of the data source 'Synchro LogicalInterface OCSng'...
+	Info - Synchronization of data source 'Synchro LogicalInterface OCSng' succeeded.
+
+
 
 
 Las siguientes opciones de línea de comando (opcionales) están disponibles:
