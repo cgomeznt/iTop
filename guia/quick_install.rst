@@ -34,7 +34,7 @@ Habilitamos el repositorio del PHP que requerimos instalar::
 	yum-config-manager --enable remi-php56   # [Install PHP 5.6]
 	yum-config-manager --enable remi-php72   # [Install PHP 7.2]
 
-Instalamos los siguientes componentes que son necesarios para OCS Inventory::
+Instalamos los siguientes componentes que son necesarios para iTop::
 
 	yum-config-manager --enable remi-php56   # [Install PHP 5.6]
 	yum install -y php php-mysqlnd php-ldap php-mcrypt php-cli php-soap php-xml php-gd graphviz.x86_64
@@ -78,6 +78,26 @@ En la instalación de mysql hay un paso que le pide que coloque la contraseña d
 A partir de MySQL 5.7, el usuario root no tiene una contraseña explícita en MySQL, por lo que tendrá que crear una cuenta de usuario con una contraseña para instalar iTop. Los siguientes comandos crean un usuario iTop con todos los privilegios. Esto es útil para las pruebas, pero no es la mejor configuración para su uso en producción (porque la seguridad es importante)::
 
 	GRANT ALL PRIVILEGES ON *.* TO 'iTop'@'%' IDENTIFIED BY 'some_password';
+	FLUSH PRIVILEGES;
+
+Nos conectamos a MariaDB::
+
+	mysql -uroot -p
+
+Creamos la Base de Datos para iTop::
+
+	create database itop_db;
+
+Creamos el usuario para la base de datos "itop_db"::
+
+	CREATE USER 'itop'@'%' IDENTIFIED BY 'r00tme';
+
+Este usuario necesita todos los privilegios en la base de datos "itop_db"::
+
+	GRANT ALL PRIVILEGES ON itop_db.* TO 'itop'@'%' WITH GRANT OPTION;
+
+No olvides aplicar los parámetros::
+
 	FLUSH PRIVILEGES;
 
 Configuraciones recomendadas
@@ -129,12 +149,12 @@ A partir de iTop 2.5, el conjunto de caracteres utilizado es utf8mb4 con utf8mb4
 
 
 **MySQL Recomendaciones:**
-  innodb_buffer_pool_size = 512M
-  query_cache_size = 32M
-  query_cache_limit = 1M
+* innodb_buffer_pool_size = 512M
+* query_cache_size = 32M
+* query_cache_limit = 1M
 
 **PHP Recomendaciones:**
-  memory_limit = 256M
+* memory_limit = 256M
 
 Reiniciamos los servicios::
 
@@ -158,6 +178,14 @@ Descargamos ITOP, Descomprimimos y colocamos la carpeta en /var/www/html/itop::
 	mv web/ /var/www/html/itop
 	chown -R apache.apache /var/www/html/itop/
 
+También descargue desde la pagina oficial de iTop el "Data Collector for OCS Inventory NG 1.0.4.", lo descomprime::
+
+	unzip Data\ Collector\ for\ OCS\ Inventory\ NG\ 1.0.4.zip
+
+Moverlo para la carpeta "extensions" de la instalción de iTop::
+
+	mv ocsng-data-collector/ /var/www/html/itop/extensions/
+	
 
 El primer paso de la instalación consiste en verificar la consistencia de la configuración, los derechos de usuario para el usuario del servidor web y los requisitos previos para las extensiones MySQL, PHP y PHP opcionales.
 
@@ -314,10 +342,22 @@ Además de la administración de cambios e incidentes, se pueden implementar otr
 .. figure:: ../images/install/10.png
 
 
+Procesos adicionales de las Extensiones
+++++++++++++++++++++++++++++++++++++++++++
+
+Se procede a implementar las extensiones que se hayan colocado de forma manual en el directorio "extensions"
+
+
+
+.. figure:: ../images/install/16.png
+
+
 
 
 Lanzamiento de la instalación
-++++++++++++++++++++++++++++++++Una vez que se hacen todas las elecciones, se muestra un resumen. Puede profundizar para verificar sus opciones haciendo clic en el botón "más" para cada sección.
+++++++++++++++++++++++++++++++++
+
+Una vez que se hacen todas las elecciones, se muestra un resumen. Puede profundizar para verificar sus opciones haciendo clic en el botón "más" para cada sección.
 
 Para iniciar la instalación real de iTop, haga clic en el botón "Instalar!".
 
