@@ -429,7 +429,7 @@ Al irnos ahora a "Configuration Management" y en "Overview" veremos los servers 
 
 
 
-.. figure:: ../images/integrations/12png
+.. figure:: ../images/integrations/12.png
 
 
 
