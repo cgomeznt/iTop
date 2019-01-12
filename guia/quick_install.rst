@@ -290,7 +290,7 @@ La documentación de estos dos módulos se agrupa en: Módulo de gestión de ser
 
 
 
-.. figure:: ../images/install/07.png
+.. figure:: ../images/install/071.png
 
 
 
