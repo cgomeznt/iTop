@@ -257,6 +257,68 @@ Listo ya el usuario admin esta en este profile que es importante para la ejecuci
 .. figure:: ../images/integrations/07.png
 
 
+Si en la instalación fue seleccionado el **Service Management for Service Providers**
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Si fue seleccionado el **Service Management for Service Providers** durante la instalación debe tener en cuenta  que el atributo  "services_list" en  VirtualMachines, debe ser ignorado para el Data Collector de OCS Inventory.
+
+Si no toma estas precauciones tendrá este error::
+
+	Error - Failed to update the Synchro Data Source. Inconsistent data model, the attribute 'services_list' does not exist in iTop.
+
+Para evitar y/o corregir este erro debe editar estos tres (3) archivos, que están en la ruta "$ITOP_HOME/extensions/ocsng-data-collector/collectors"
+
+* OCSServerCollector.json
+* OCSVirtualMachineCollector.json
+* OCSPCCollector.json
+
+Editar OCSServerCollector.json y **eliminar el bloque** en donde esta "services_list"::
+
+	vi OCSServerCollector.json
+                {
+                        "attcode": "services_list",
+                        "update": "0",
+                        "reconcile": "0",
+                        "update_policy": "master_locked",
+                        "row_separator": "|",
+                        "attribute_separator": ";",
+                        "value_separator": ":",
+                        "attribute_qualifier": "'",
+                        "finalclass": "SynchroAttLinkSet",
+                        "friendlyname": "services_list"
+                },
+
+Editar OCSVirtualMachineCollector.json y **eliminar el bloque** en donde esta "services_list"::
+	
+	# vi collectors/OCSVirtualMachineCollector.json
+                {
+                        "attcode": "services_list",
+                        "update": "0",
+                        "reconcile": "0",
+                        "update_policy": "master_locked",
+                        "row_separator": "|",
+                        "attribute_separator": ";",
+                        "value_separator": ":",
+                        "attribute_qualifier": "'",
+                        "finalclass": "SynchroAttLinkSet",
+                        "friendlyname": "services_list"
+                },
+
+Editar OCSPCCollector.json y **eliminar el bloque** en donde esta "services_list"
+
+	# vi collectors/OCSPCCollector.json
+                {
+                        "attcode": "services_list",
+                        "update": "0",
+                        "reconcile": "0",
+                        "update_policy": "master_locked",
+                        "row_separator": "|",
+                        "attribute_separator": ";",
+                        "value_separator": ":",
+                        "attribute_qualifier": "'",
+                        "finalclass": "SynchroAttLinkSet",
+                        "friendlyname": "services_list"
+                },
+
 
 Para iniciar la recopilación de datos y la sincronización con iTop, ejecute el siguiente comando (desde el directorio raíz donde está instalada la aplicación del recopilador de datos)en este caso en "var/www/html/itop/extensions/ocsng-data-collector/"::
 
