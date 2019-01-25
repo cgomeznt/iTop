@@ -319,6 +319,8 @@ Editar OCSPCCollector.json y **eliminar el bloque** en donde esta "services_list
                         "friendlyname": "services_list"
                 },
 
+Recopilación de datos y la sincronización con iTop
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Para iniciar la recopilación de datos y la sincronización con iTop, ejecute el siguiente comando (desde el directorio raíz donde está instalada la aplicación del recopilador de datos)en este caso en "var/www/html/itop/extensions/ocsng-data-collector/"::
 
