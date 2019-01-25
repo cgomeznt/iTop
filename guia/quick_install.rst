@@ -286,6 +286,8 @@ La gestión del servicio viene en dos sabores en iTop. Elija la opción que mejo
 * La gestión de servicios para empresas es más adecuada para describir una situación en la que se utiliza la misma infraestructura para prestar servicios a un conjunto de clientes. Los clientes pueden ser entidades internas de una organización común o clientes externos.
 * La gestión de servicios para proveedores de servicios se adapta mejor si la infraestructura utilizada para entregar / respaldar a un cliente es específica para cada cliente con poca superposición (intercambio) entre los clientes.
 
+**NOTA:** Si el modulo de  **Service Management for Service Providers** es seleccionado durante la instalación debe tener en cuenta  que el atributo  "services_list" en  VirtualMachines, debe ser ignorado
+
 La documentación de estos dos módulos se agrupa en: Módulo de gestión de servicios (servicios, SLA, contratos).
 
 
