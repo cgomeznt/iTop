@@ -265,7 +265,7 @@ Si no toma estas precauciones tendrá este error::
 
 	Error - Failed to update the Synchro Data Source. Inconsistent data model, the attribute 'services_list' does not exist in iTop.
 
-Para evitar y/o corregir este erro debe editar estos tres (3) archivos, que están en la ruta "$ITOP_HOME/extensions/ocsng-data-collector/collectors"
+Para evitar y/o corregir este error debe editar estos tres (3) archivos, que están en la ruta "$ITOP_HOME/extensions/ocsng-data-collector/collectors"
 
 * OCSServerCollector.json
 * OCSVirtualMachineCollector.json
@@ -303,7 +303,7 @@ Editar OCSVirtualMachineCollector.json y **eliminar el bloque** en donde esta "s
                         "friendlyname": "services_list"
                 },
 
-Editar OCSPCCollector.json y **eliminar el bloque** en donde esta "services_list"
+Editar OCSPCCollector.json y **eliminar el bloque** en donde esta "services_list"::
 
 	# vi collectors/OCSPCCollector.json
                 {
